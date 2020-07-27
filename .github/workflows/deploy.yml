@@ -1,0 +1,17 @@
+name: API mock server
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy-mock:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Login to Heroku Container registry
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      run: make deploy
