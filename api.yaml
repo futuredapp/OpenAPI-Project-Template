@@ -1,0 +1,21 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI specification template API
+  version: 0.1.0
+  description: Project made using OpenAPI specification template
+  contact:
+    name: Futured apps s.r.o.
+    url: 'https://www.futured.app/en/contact/'
+    email: your@futured.app
+servers:
+  - description: Production
+    url: 'https://project-name.com/api/v1'
+  - description: Development
+    url: 'https://project-name.futured.dev/api/v1'
+  - description: Global mock
+    url: 'https://project-name-mock.herokuapp.com'
+  - description: Local mock
+    url: 'http://127.0.0.1:4010'
+tags:
+  - name: Tag
+    description: Some tag
