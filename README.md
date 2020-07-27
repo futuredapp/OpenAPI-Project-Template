@@ -6,6 +6,8 @@ Generated human-readable specification is available here:
 
 ~~TBA~~
 
+Preferred way for editing this specification is using [Stoplight Studio](https://stoplight.io/studio/).
+
 ## Server URLs:
 
 - Production server: ~~TBA~~
