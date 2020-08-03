@@ -7,7 +7,7 @@ build: ## Build mock server
 	docker build -t project-name-mock .
 
 run: ## Run mock server at port :8080
-	docker run -p 127.0.0.1:8080:5000 -e "PORT=5000" project-mock
+	docker run -p 127.0.0.1:8080:5000 -e "PORT=5000" project-name-mock
 
 stop: ## Stop mock server
 	docker ps | grep project-name-mock | awk '{print $$1}' | xargs docker stop
