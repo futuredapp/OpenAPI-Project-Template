@@ -19,3 +19,24 @@ servers:
 tags:
   - name: Tag
     description: Some tag
+paths:
+  /test:
+    get:
+      summary: Test endpoint
+      tags:
+        - Tag
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: string
+                    default: Successful test response
+                required:
+                  - data
+      operationId: test
+      description: Test method - should be removed!!!
