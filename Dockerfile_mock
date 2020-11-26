@@ -1,0 +1,6 @@
+FROM  stoplight/prism:3
+
+ADD ./api.yaml api.yaml
+ADD ./entrypoint_mock.sh entrypoint_mock.sh
+
+ENTRYPOINT "./entrypoint_mock.sh"

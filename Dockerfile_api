@@ -1,0 +1,13 @@
+FROM ruby:2.6.6-alpine3.12
+
+RUN bundle config --global frozen 1
+
+WORKDIR /usr/src/app
+
+COPY Gemfile Gemfile.lock ./
+RUN gem install bundler:2.1.4
+RUN bundle install
+
+COPY . .
+
+ENTRYPOINT "./entrypoint_api.sh"

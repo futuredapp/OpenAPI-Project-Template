@@ -12,10 +12,19 @@ run: ## Run mock server at port :8080
 stop: ## Stop mock server
 	docker ps | grep project-name-mock | awk '{print $$1}' | xargs docker stop
 
-deploy: ## Deploy mock server
+deploy-mock: ## Deploy mock server
+	rm Dockerfile_api
+	mv Dockerfile_mock Dockerfile
 	heroku container:login
 	heroku container:push web --app=project-name-mock
 	heroku container:release web --app=project-name-mock
+
+deploy-api: ## Deploy api server
+	rm Dockerfile_mock
+	mv Dockerfile_api Dockerfile
+	heroku container:login
+	heroku container:push web --app=project-name-api
+	heroku container:release web --app=project-name-api
 
 redoc: ## Run ReDoc at port :7000
 	docker run -it --rm -p 7000:80 -v $(CURDIR)/:/usr/share/nginx/html/ -e SPEC_URL=api.yaml redocly/redoc
