@@ -13,15 +13,15 @@ stop: ## Stop mock server
 	docker ps | grep project-name-mock | awk '{print $$1}' | xargs docker stop
 
 deploy-mock: ## Deploy mock server
-	rm Dockerfile_api
-	mv Dockerfile_mock Dockerfile
+	rm ci/Dockerfile_api
+	mv ci/Dockerfile_mock Dockerfile
 	heroku container:login
 	heroku container:push web --app=project-name-mock
 	heroku container:release web --app=project-name-mock
 
 deploy-api: ## Deploy api server
-	rm Dockerfile_mock
-	mv Dockerfile_api Dockerfile
+	rm ci/Dockerfile_mock
+	mv ci/Dockerfile_api Dockerfile
 	heroku container:login
 	heroku container:push web --app=project-name-api
 	heroku container:release web --app=project-name-api
