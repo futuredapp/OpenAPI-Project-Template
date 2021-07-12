@@ -1,0 +1,8 @@
+FROM  stoplight/prism:3
+
+ADD ./api.yaml api.yaml
+ADD ./ci/entrypoint_mock.sh ci/entrypoint_mock.sh
+
+RUN ["chmod", "+x", "ci/entrypoint_mock.sh"]
+
+ENTRYPOINT "./ci/entrypoint_mock.sh"
